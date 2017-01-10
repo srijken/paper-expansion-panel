@@ -1,7 +1,7 @@
 _[Demo and API Docs](http://collaborne.github.io/paper-expansion-panel)_
 
 
-paper-expansion-panel [![Bower version](https://badge.fury.io/bo/paper-expansion-panel.svg)](http://badge.fury.io/bo/paper-expansion-panel) [![Travis state](https://travis-ci.org/Collaborne/paper-expansion-panel.svg?branch=master)](https://travis-ci.org/Collaborne/paper-expansion-panel)
+paper-expansion-panel [![Travis state](https://travis-ci.org/Collaborne/paper-expansion-panel.svg?branch=master)](https://travis-ci.org/Collaborne/paper-expansion-panel)
 =========
 
 `paper-expansion-panel` provides a A Material Design [expansion panel with header and collapsible content](https://material.google.com/components/expansion-panels.html). The web component is built with [Polymer 1.x](https://www.polymer-project.org).
