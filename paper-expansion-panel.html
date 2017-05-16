@@ -5,6 +5,7 @@
 <link rel="import" href="../paper-item/paper-item.html">
 <link rel="import" href="../paper-item/paper-item-body.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 
 <!--
 A Material Design [expansion panel with header and collapsible content](https://material.google.com/components/expansion-panels.html)
@@ -37,8 +38,8 @@ Custom property | Description | Default
 			.header {
 				min-height: 48px;
 				color: var(--primary-text-color);
-				@apply --layout-horizontal;
-				@apply --layout-center-center;
+				@apply --layout-center;
+				@apply --layout-justified;
 				@apply --paper-font-subhead;
 				@apply --paper-expansion-panel-header;
 			}
@@ -56,22 +57,26 @@ Custom property | Description | Default
 				color: var(--secondary-text-color);
 				@apply --paper-expansion-panel-summary;
 			}
-			
+
 			.flex {
 				@apply --layout-flex;
 			}
 		</style>
 
-		<paper-item>
-			<paper-item-body>
-				<div class="header flex" on-tap="_toggleOpened">
-					<div class="flex">[[header]]</div>
-					<template is="dom-if" if="[[summary]]">
-						<div hidden$="[[opened]]" class="flex summary">[[summary]]</div>
-					</template>
-					<paper-icon-button class="toggle" icon="[[_toggleIcon]]"></paper-icon-button>
-				</div>
-			</paper-item-body>
+		<paper-item class=header on-tap="_toggleOpened">
+			<template is="dom-if" if="[[header]]">
+				<div class=flex>[[header]]</div>
+
+				<template is="dom-if" if="[[summary]]">
+					<div hidden$="[[opened]]" class="flex summary">[[summary]]</div>
+				</template>
+			</template>
+
+			<template is="dom-if" if="[[!header]]">
+					<slot name=header><div style='flex-grow: 1'>&nbsp;</div></slot>
+			</template>
+
+			<paper-icon-button class="toggle" icon="[[_toggleIcon]]"></paper-icon-button>
 		</paper-item>
 		<iron-collapse class="content" opened="{{opened}}">
 			<slot></slot>
@@ -90,7 +95,10 @@ Custom property | Description | Default
 			/**
 			 * Text in the header row
 			 */
-			header: String,
+			header: {
+				type: String,
+				value: '',
+			},
 
 			/**
 			 * Summary of the expandible area
