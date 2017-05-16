@@ -62,9 +62,9 @@ Custom property | Description | Default
 			}
 		</style>
 
-		<paper-item class=header on-tap="_toggleOpened">
+		<paper-item class="header" on-tap="_toggleOpened">
 			<template is="dom-if" if="[[header]]">
-				<div class=flex>[[header]]</div>
+				<div class="flex">[[header]]</div>
 
 				<template is="dom-if" if="[[summary]]">
 					<div hidden$="[[opened]]" class="flex summary">[[summary]]</div>
@@ -72,7 +72,7 @@ Custom property | Description | Default
 			</template>
 
 			<template is="dom-if" if="[[!header]]">
-					<slot name=header><div style='flex-grow: 1'>&nbsp;</div></slot>
+				<slot name=header><div style="flex-grow: 1">&nbsp;</div></slot>
 			</template>
 
 			<paper-icon-button class="toggle" icon="[[_toggleIcon]]"></paper-icon-button>

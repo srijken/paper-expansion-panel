@@ -39,13 +39,12 @@
 						</paper-item-body>
 					</paper-item>
 				</paper-expansion-panel>
-				<paper-expansion-panel opened={{opened}}>
-					<iron-icon slot=header icon=bug-report
-						style='color: red; margin-right: 16px'></iron-icon>
-					<div slot=header class=flex style='font-weight: bold'>
+				<paper-expansion-panel opened="{{opened}}">
+					<iron-icon slot="header" icon="bug-report" style="color: red; margin-right: 16px"></iron-icon>
+					<div slot="header" class="flex" style='font-weight: bold'>
 						Item 4
 					</div>
-					<div slot=header class=flex style='color: grey' hidden$=[[opened]]>
+					<div slot="header" class="flex" style="color: grey'"hidden$="[[opened]]">
 						Custom header slot
 					</div>
 					<div>
