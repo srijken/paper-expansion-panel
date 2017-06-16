@@ -1,16 +1,27 @@
-_[Demo and API Docs](http://collaborne.github.io/paper-expansion-panel)_
-
-
-paper-expansion-panel [![Travis state](https://travis-ci.org/Collaborne/paper-expansion-panel.svg?branch=master)](https://travis-ci.org/Collaborne/paper-expansion-panel)
+paper-expansion-panel [![Travis state](https://travis-ci.org/Collaborne/paper-expansion-panel.svg?branch=master)](https://travis-ci.org/Collaborne/paper-expansion-panel) [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/Collaborne/paper-expansion-panel)
 =========
 
-`paper-expansion-panel` provides a A Material Design [expansion panel with header and collapsible content](https://material.google.com/components/expansion-panels.html). The web component is built with [Polymer 1.x](https://www.polymer-project.org).
-
-![Screenshot](/doc/screenshot.png "Screenshot")
+`paper-expansion-panel` provides a A Material Design [expansion panel with header and collapsible content](https://material.google.com/components/expansion-panels.html). The web component is built with [Polymer](https://www.polymer-project.org).
 
 To use this element:
 
 `bower install paper-expansion-panel`
+
+<!--
+```
+<custom-element-demo>
+  <template>
+    <link rel="import" href="paper-expansion-panel.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<paper-expansion-panel header="Item 1 (no summary)" opened>
+    Lots of very interesting content.
+</paper-expansion-panel>
+```
 
 
 ## License
