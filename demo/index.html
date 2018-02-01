@@ -5,6 +5,7 @@
 		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 		<link rel="import" href="../../iron-icons/iron-icons.html">
 		<link rel="import" href="../../paper-item/paper-item.html">
+		<link rel="import" href="../paper-accordion.html">
 		<link rel="import" href="../paper-expansion-panel.html">
 		<link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
 		<link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html">
@@ -95,6 +96,29 @@
 				<paper-expansion-panel class="styled" header="Item 1" summary="Styled panel">
 					Lots of very interesting content.
 				</paper-expansion-panel>
+			</template>
+		</demo-snippet>
+
+
+		<h4>Accordion</h4>
+		<demo-snippet>
+			<template>
+				<dom-bind>
+					<template>
+						<input type="checkbox" checked="{{multi::change}}">
+						<paper-accordion multi="[[multi]]">
+							<paper-expansion-panel header="Item 1" summary="Styled panel">
+								Lots of very interesting content.
+							</paper-expansion-panel>
+							<paper-expansion-panel header="Item 2" summary="Styled panel">
+								Lots of very interesting content.
+							</paper-expansion-panel>
+							<paper-expansion-panel header="Item 3" summary="Styled panel">
+								Lots of very interesting content.
+							</paper-expansion-panel>
+						</paper-accordion>
+					</template>
+				</dom-bind>
 			</template>
 		</demo-snippet>
 	</body>
