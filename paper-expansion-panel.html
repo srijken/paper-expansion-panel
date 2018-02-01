@@ -40,7 +40,17 @@ Custom property | Description | Default
 				@apply --layout-center;
 				@apply --layout-justified;
 				@apply --paper-font-subhead;
+
+				--paper-item: {
+					padding-left: 24px;
+					padding-right: 24px;
+				}
+
 				@apply --paper-expansion-panel-header;
+			}
+
+			:host([opened]) .header {
+				min-height: 64px;
 			}
 
 			.toggle {
