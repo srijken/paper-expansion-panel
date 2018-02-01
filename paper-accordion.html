@@ -1,32 +1,20 @@
 <link rel="import" href="../polymer/polymer.html">
-<!-- <link rel="import" href="../iron-icons/iron-icons.html">
-<link rel="import" href="../iron-collapse/iron-collapse.html">
-<link rel="import" href="../paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../paper-item/paper-item.html">
-<link rel="import" href="../paper-styles/paper-styles.html">
-<link rel="import" href="../iron-flex-layout/iron-flex-layout.html"> -->
-<!-- <link rel="import" href="paper-expansion-panel.html"> -->
 
 <!--
-A Material Design [expansion panel with header and collapsible content](https://material.google.com/components/expansion-panels.html)
+A wrapper for the Material Design [expansion panel with header and collapsible content](https://material.google.com/components/expansion-panels.html)
 
 ### Example
 
 ```html
-<paper-expansion-panel header="Panel" summary="With event" on-toggle="onToggle">
-  Lots of very interesting content.
-</paper-expansion-panel>
+<paper-accordion>
+  <paper-expansion-panel header="Panel" summary="With event" on-toggle="onToggle">
+    Lots of very interesting content.
+  </paper-expansion-panel>
+  <paper-expansion-panel header="Panel" summary="With event" on-toggle="onToggle">
+    Lots of very interesting content.
+  </paper-expansion-panel>
+</paper-accordion
 ```
-
-### Styling
-
-The following custom properties and mixins are available for styling:
-
-Custom property | Description | Default
-----------------|-------------|----------
---paper-expansion-panel-header|Mixin applied to the header of the panel|{}
---paper-expansion-panel-summary|Mixin applied to the summary of the panel|{}
---paper-expansion-panel-content|Mixin applied to collapsible content|{}
 
 @demo demo/index.html
 -->
@@ -67,6 +55,9 @@ Custom property | Description | Default
 	Polymer({
 		is: 'paper-accordion',
 		properties: {
+            /**
+			 * Allow multiple items to be open.
+			 */
             multi: {
                 type: Boolean,
                 value: false
