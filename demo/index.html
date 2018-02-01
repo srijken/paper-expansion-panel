@@ -103,22 +103,34 @@
 		<h4>Accordion</h4>
 		<demo-snippet>
 			<template>
-				<dom-bind>
+				<dom-bind id="t">
 					<template>
-						<input type="checkbox" checked="{{multi::change}}">multiple items can be opened
+						<p><input type="checkbox" checked="{{multi::change}}">multiple items can be opened</p>
+						<p><button on-click="_onClick">Add item</button></p>
+
 						<paper-accordion multi="[[multi]]">
-							<paper-expansion-panel header="Item 1" summary="Styled panel">
-								Lots of very interesting content.
-							</paper-expansion-panel>
-							<paper-expansion-panel header="Item 2" summary="Styled panel">
-								Lots of very interesting content.
-							</paper-expansion-panel>
-							<paper-expansion-panel header="Item 3" summary="Styled panel">
-								Lots of very interesting content.
-							</paper-expansion-panel>
+							<dom-repeat items="[[items]]">
+								<template>
+									<paper-expansion-panel header="[[item.header]]" summary="[[item.summary]]">
+										[[item.description]]
+									</paper-expansion-panel>
+								</template>
+							</dom-repeat>
 						</paper-accordion>
 					</template>
 				</dom-bind>
+
+				<script>
+					var t = document.querySelector("#t"); 
+					t.items = [
+						{ header: "Item 1", summary: "Summary", description: "Description"},
+						{ header: "Item 2", summary: "Summary", description: "Description"},
+						{ header: "Item 3", summary: "Summary", description: "Description"}
+					];
+					t._onClick = function(){
+						t.push("items", { header: "Extra item", summary: "Summary", description: "Description"});
+					}
+				</script>
 			</template>
 		</demo-snippet>
 	</body>

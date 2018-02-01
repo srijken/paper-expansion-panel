@@ -16,6 +16,14 @@ A wrapper for the Material Design [expansion panel with header and collapsible c
 </paper-accordion
 ```
 
+### Styling
+
+The following custom properties and mixins are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+--paper-accordion-divider|Mixin applied to the paper-expansion-panel items that need a divider|{}
+
 @demo demo/index.html
 -->
 <dom-module id="paper-accordion">
@@ -29,6 +37,11 @@ A wrapper for the Material Design [expansion panel with header and collapsible c
                 transition: margin 225ms cubic-bezier(.4,0,.2,1);
                 box-sizing: content-box;
                 margin: 0;
+            }
+            ::slotted(paper-expansion-panel.divider){
+                border-top: 1px solid rgba(0, 0, 0, var(--dark-divider-opacity, .12));
+
+                @apply --paper-accordion-divider;
             }
 
             ::slotted(paper-expansion-panel[opened]){
@@ -44,7 +57,7 @@ A wrapper for the Material Design [expansion panel with header and collapsible c
                 margin-bottom: 0;
             }
         </style>
-        <slot id="slot"></slot>
+        <slot id="slot" on-slotchange="_onSlotChange"></slot>
 	</template>
 </dom-module>
 
@@ -66,17 +79,42 @@ A wrapper for the Material Design [expansion panel with header and collapsible c
 
         listeners: {
           'toggle': '_onToggle',
+          'slotchange': '_onSlotChange'
+        },
+
+        _setDividers: function() {
+            const expansionPanels = this.$.slot.assignedNodes()
+                    .filter(n => n.nodeType === Node.ELEMENT_NODE && n.nodeName === "PAPER-EXPANSION-PANEL");
+
+            let previousPanel;
+
+            for (let i = 0; i < expansionPanels.length; i++) {
+                let panel = expansionPanels[i];
+
+                panel.classList.remove("divider");
+
+                if (previousPanel && !previousPanel.opened && !panel.opened) {
+                    panel.classList.add("divider");
+                }
+
+                previousPanel = panel;
+            }
         },
 
         _onToggle: function(e){
-            if(this.multi) return;
-
-            if(e.detail.opened) {
+            if(!this.multi && e.detail.opened) {
+                // Collapse others
                 const otherExpansionPanels = this.$.slot.assignedNodes()
                     .filter(n => n.nodeType === Node.ELEMENT_NODE && n !== e.detail && n.nodeName === "PAPER-EXPANSION-PANEL");
 
                 otherExpansionPanels.forEach(n => n.opened = false);
             }
+
+            this._setDividers();
+        },
+
+        _onSlotChange: function(e){
+            this._setDividers();
         }
 
 	});
