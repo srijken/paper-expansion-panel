@@ -86,7 +86,7 @@ Custom property | Description | Default
             </template>
 
             <template is="dom-if" if="[[!icon]]">
-                <slot name="icon-item" slot="icon-item"></slot>
+                    <slot name="icon-item" slot="icon-item"></slot>
             </template>
 
 			<template is="dom-if" if="[[header]]">
@@ -100,7 +100,7 @@ Custom property | Description | Default
 			<template is="dom-if" if="[[!header]]">
 				<slot name="header"><div class="flex">&nbsp;</div></slot>
 			</template>
-
+			
 			<paper-icon-button class="toggle" icon="[[_toggleIcon]]" on-tap="_toggleOpened"></paper-icon-button>
 		</paper-icon-item>
 		<iron-collapse class="content" opened="{{opened}}">
@@ -120,7 +120,8 @@ Custom property | Description | Default
         
         properties: {
             icon: {
-                type: String
+                type: String,
+				value: null
             }
         }
 	});
