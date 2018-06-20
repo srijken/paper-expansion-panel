@@ -38,6 +38,8 @@
 		 * @event toggle
 		 */
 		_toggleOpened: function(e) {
+			e.cancelBubble = true;
+
 			this.opened = !this.opened;
 			this.fire('toggle', this);
 		},
