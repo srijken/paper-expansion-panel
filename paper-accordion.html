@@ -86,7 +86,8 @@ Custom property | Description | Default
 
         _setDividers: function() {
             const expansionPanels = this.$.slot.assignedNodes()
-                    .filter(n => n.nodeType === Node.ELEMENT_NODE && n.nodeName === "PAPER-EXPANSION-PANEL");
+                    .filter(n => n.nodeType === Node.ELEMENT_NODE && 
+                        (n.nodeName === "PAPER-EXPANSION-PANEL" || n.nodeName === "PAPER-ICON-EXPANSION-PANEL"));
 
             let previousPanel;
 
