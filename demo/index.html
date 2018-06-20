@@ -91,6 +91,12 @@
 								padding: 0 16px;
 							};
 						}
+
+						paper-expansion-panel.iron-selected{
+							--paper-expansion-panel-header:{
+								font-weight: 900;
+							}
+						}
 					</style>
 				</custom-style>
 				<paper-expansion-panel class="styled" header="Item 1" summary="Styled panel">
@@ -105,10 +111,11 @@
 			<template>
 				<dom-bind id="t">
 					<template>
-						<p><input type="checkbox" checked="{{multi::change}}">multiple items can be opened</p>
+						<p><input type="checkbox" checked="{{multiOpen::change}}">multiple items can be opened</p>
+						<p><input type="checkbox" checked="{{multiSelection::change}}">multiple items can be selected</p>
 						<p><button on-click="_onClick">Add item</button></p>
 
-						<paper-accordion multi="[[multi]]">
+						<paper-accordion multi-open="[[multiOpen]]" multi="[[multiSelection]]">
 							<dom-repeat items="[[items]]">
 								<template>
 									<paper-expansion-panel header="[[item.header]]" summary="[[item.summary]]">

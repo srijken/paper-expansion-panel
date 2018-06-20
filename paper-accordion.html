@@ -1,4 +1,5 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-selector/iron-multi-selectable.html">
 
 <!--
 A wrapper for the Material Design [expansion panel with header and collapsible content](https://material.google.com/components/expansion-panels.html)
@@ -71,11 +72,12 @@ Custom property | Description | Default
             /**
 			 * Allow multiple items to be open.
 			 */
-            multi: {
+            multiOpen: {
                 type: Boolean,
                 value: false
             }
 		},
+        behaviors: [Polymer.IronMultiSelectableBehavior],
 
         listeners: {
           'toggle': '_onToggle',
@@ -102,7 +104,7 @@ Custom property | Description | Default
         },
 
         _onToggle: function(e){
-            if(!this.multi && e.detail.opened) {
+            if(!this.multiOpen && e.detail.opened) {
                 // Collapse others
                 const otherExpansionPanels = this.$.slot.assignedNodes()
                     .filter(n => n.nodeType === Node.ELEMENT_NODE && n !== e.detail && n.nodeName === "PAPER-EXPANSION-PANEL");
