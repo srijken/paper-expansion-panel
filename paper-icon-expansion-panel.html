@@ -1,8 +1,9 @@
 <link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-icon/iron-icon.html">
 <link rel="import" href="../iron-icons/iron-icons.html">
 <link rel="import" href="../iron-collapse/iron-collapse.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
-<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-item/paper-icon-item.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="paper-expansion-panel-behavior.html">
@@ -13,9 +14,9 @@ A Material Design [expansion panel with header and collapsible content](https://
 ### Example
 
 ```html
-<paper-expansion-panel header="Panel" summary="With event" on-toggle="onToggle">
+<paper-icon-expansion-panel header="Panel" summary="With event" on-toggle="onToggle">
   Lots of very interesting content.
-</paper-expansion-panel>
+</paper-icon-expansion-panel>
 ```
 
 ### Styling
@@ -30,7 +31,7 @@ Custom property | Description | Default
 
 @demo demo/index.html
 -->
-<dom-module id="paper-expansion-panel">
+<dom-module id="paper-icon-expansion-panel">
 
 	<template>
 
@@ -79,7 +80,15 @@ Custom property | Description | Default
 			}
 		</style>
 
-		<paper-item class="header">
+		<paper-icon-item class="header">
+            <template is="dom-if" if="[[icon]]">
+                <iron-icon icon="[[icon]]" slot="icon-item"></iron-icon>
+            </template>
+
+            <template is="dom-if" if="[[!icon]]">
+                <slot name="icon" slot="icon"></slot>
+            </template>
+
 			<template is="dom-if" if="[[header]]">
 				<div class="flex">[[header]]</div>
 
@@ -93,7 +102,7 @@ Custom property | Description | Default
 			</template>
 
 			<paper-icon-button class="toggle" icon="[[_toggleIcon]]" on-tap="_toggleOpened"></paper-icon-button>
-		</paper-item>
+		</paper-icon-item>
 		<iron-collapse class="content" opened="{{opened}}">
 			<slot></slot>
 		</iron-collapse>
@@ -106,8 +115,14 @@ Custom property | Description | Default
 (function() {
 
 	Polymer({
-		is: 'paper-expansion-panel',
-		behaviors: [Polymer.PaperExpansionPanelBehavior],
+		is: 'paper-icon-expansion-panel',
+        behaviors: [Polymer.PaperExpansionPanelBehavior],
+        
+        properties: {
+            icon: {
+                type: String
+            }
+        }
 	});
 
 })();
