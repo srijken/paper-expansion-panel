@@ -4,6 +4,7 @@
 <link rel="import" href="../iron-collapse/iron-collapse.html">
 <link rel="import" href="../paper-icon-button/paper-icon-button.html">
 <link rel="import" href="../paper-item/paper-icon-item.html">
+<link rel="import" href="../paper-item/paper-item-body.html">
 <link rel="import" href="../paper-styles/paper-styles.html">
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 <link rel="import" href="paper-expansion-panel-behavior.html">
@@ -86,7 +87,7 @@ Custom property | Description | Default
             </template>
 
             <template is="dom-if" if="[[!icon]]">
-                    <slot name="icon-item" slot="icon-item"></slot>
+				<slot slot="item-icon" name="item-icon"></slot>
             </template>
 
 			<template is="dom-if" if="[[header]]">
