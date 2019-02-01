@@ -77,6 +77,12 @@ Custom property | Description | Default
 			.flex {
 				@apply --layout-flex;
 			}
+
+			::slotted([slot=header]) {
+                display:flex;
+                overflow:hidden;
+                flex-grow: 1;
+            }
 		</style>
 
 		<paper-icon-item class="header">

@@ -5,11 +5,15 @@
 		<link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 		<link rel="import" href="../../iron-icons/iron-icons.html">
 		<link rel="import" href="../../paper-item/paper-item.html">
-		<link rel="import" href="../paper-accordion.html">
+		<!-- <link rel="import" href="../paper-accordion.html">
 		<link rel="import" href="../paper-expansion-panel.html">
 		<link rel="import" href="../../iron-flex-layout/iron-flex-layout.html">
-		<link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html">
+		<link rel="import" href="../../iron-flex-layout/iron-flex-layout-classes.html"> -->
 
+		<link rel="import" href="../../web-animations-js/web-animations-next.min.html">
+
+		<link rel="import" href="../../paper-dropdown-menu/paper-dropdown-menu.html">
+		<link rel="import" href="../../paper-listbox/paper-listbox.html">
 	</head>
 
 	<body>
@@ -41,6 +45,10 @@
 							</paper-item-body>
 						</paper-item>
 					</paper-expansion-panel>
+
+
+
+
 					<paper-expansion-panel opened="{{opened}}">
 						<iron-icon slot="header" icon="bug-report" style="color: red; margin-right: 16px"></iron-icon>
 						<div slot="header" class="flex" style='font-weight: bold'>
@@ -61,6 +69,7 @@
 							vestibulum. Proin eget tortor est. Proin imperdiet lectus et gravida
 							tincidunt.
 						</div>
+					</paper-expansion-panel>
 				</template>
 
 				<script>
@@ -70,9 +79,13 @@
 					};
 				</script>
 			</dom-bind>
+
+
 		</demo-snippet>
 
-		<h4>Styling</h4>
+		
+
+		<!-- <h4>Styling</h4>
 		<demo-snippet>
 			<template>
 				<custom-style>
@@ -105,7 +118,7 @@
 			</template>
 		</demo-snippet>
 
-
+-->
 		<h4>Accordion</h4>
 		<demo-snippet>
 			<template>
@@ -139,6 +152,15 @@
 					}
 				</script>
 			</template>
-		</demo-snippet>
+		</demo-snippet> 
+
+		<paper-dropdown-menu label="Dinosaurs">
+			<paper-listbox slot="dropdown-content">
+			  <paper-item>allosaurus</paper-item>
+			  <paper-item>brontosaurus</paper-item>
+			  <paper-item>carcharodontosaurus</paper-item>
+			  <paper-item>diplodocus</paper-item>
+			</paper-listbox>
+		  </paper-dropdown-menu>
 	</body>
 </html>
